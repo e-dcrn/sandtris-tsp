@@ -1,43 +1,32 @@
-# ignorer les fichiers de configuration et les fichiers générés pour un projet JAVA
-**/*.class
-**/bin/
-**/target/
-**/tmp/*
-**/.project
-**/.classpath
-**/workspace
-**/.metadata
-**/.settings
-**/.checkstyle
-**/*.iml
-**/*.idea
+# Fichiers compilés et de sortie de build
+/dev/target/
+/dev/bin/
+*.class
+*.jar
+*.war
+*.ear
 
-# ignorer les dossiers de configurations vscode
-**/.vscode
+# Fichiers générés par Maven
+.mvn/
+mvnw
+mvnw.cmd
 
-# ignorer les fichiers générés par LaTeX et quelques éditeurs LaTeX
-**/*~
-**/*.aux
-**/*.log
-**/*.thm
-**/*.toc
-**/*.eps
-**/*.bbl
-**/*.blg
-**/*.nav
-**/*.snm
-**/*.isty
-**/*.dvi
-**/*.date
-**/*.out
-**/*.idx
-**/*.ilg
-**/*.ind
-**/*.vrb
-**/*.tmp
-**/*.glg
-**/*.glo
-**/*.gls
-**/*.ist
-**/*.bak
-**/#*#
+# Fichiers de log
+*.log
+hs_err_pid*
+replay_pid*
+
+# Fichiers de configuration des IDE
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.DS_Store
+
+# Fichiers générés par le jeu
+/dev/scores.txt
+/dev/leaderboard.txt
+
+# Fichiers de configuration VSCode
+.vscode/

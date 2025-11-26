@@ -25,22 +25,26 @@ Ce projet a été réalisé dans le cadre du cours PRO3600 (Projet de Programmat
 *   Java (version 11 ou supérieure)
 *   Apache Maven
 
-## Comment lancer le jeu
+## Comment compiler et lancer le jeu
 
 1.  Clonez le dépôt ou téléchargez les sources.
-2.  Ouvrez un terminal et naviguez jusqu'au répertoire `dev/notreProjet/`.
-3.  Compilez le projet avec Maven :
+2.  Ouvrez un terminal et naviguez jusqu'au répertoire du projet.
+3.  Placez-vous dans le dossier `dev/` :
     ```sh
-    mvn compile
+    cd dev
     ```
-4.  Lancez l'application :
+4.  Compilez le projet avec Maven :
+    ```sh
+    mvn install
+    ```
+5.  Lancez l'application :
     ```sh
     mvn javafx:run
     ```
 
 ## Structure du projet
 
-Le projet est un projet Maven standard. Le code source se trouve dans `dev/notreProjet/src/main/java/`.
+Le projet est un projet Maven standard. Le code source se trouve dans `dev/src/main/java/`.
 
 *   `controls/`: Contient la logique du jeu (contrôleur principal, gestion des pièces).
 *   `models/`: Définit les objets du jeu (blocs, formes, zone de jeu).
