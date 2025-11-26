@@ -16,11 +16,11 @@ import javafx.scene.paint.Color;
 /**
  * Représente la zone de jeu principale où les blocs tombent, s'empilent et interagissent.
  * Cette classe gère l'ensemble des blocs présents dans une grille 2D. Elle fournit
- * des fonctions de :
- * Création de blocs
- * Détection de collision
- * Animation des blocs (gravité, mouvement aléatoire)
- * Recherche et suppression de clusters de blocs connectés
+ * des fonctions pour :
+ * - Créer des blocs
+ * - Détecter les collisions
+ * - Animer les blocs (gravité, mouvement aléatoire)
+ * - Rechercher et supprimer les clusters de blocs connectés.
  * @param width la largeur de la grille (en nombre de cellules)
  * @param height la hauteur de la grille (en nombre de cellules)
  * @param squareRatio la taille (en particules) d’un carré standard
@@ -39,10 +39,10 @@ public class SandArea {
 
 
     /**
-     * Il s'agit du constructeur.
-     * @param width Il s'agit de la largeur de la scene en unité "particule"
-     * @param height Il s'agit de la hauteur de la scene en unité "particule"
-     * @param squareRatio Il s'agit de la taille du carré qui tombe en continue en unité de particule
+     * Constructeur de la zone de jeu.
+     * @param width Largeur de la scène en unités "particule".
+     * @param height Hauteur de la scène en unités "particule".
+     * @param squareRatio Taille d'un carré en unités "particule".
      */
     public SandArea(int width, int height, int squareRatio) {
         this.width = width;
@@ -67,11 +67,11 @@ public class SandArea {
     }
 
     /**
-     * Cet fonction teste les collisions pour un seul carré de tétromino. 
-     * Sachant que les tétrominos sont un arangement de 4 carré.
-     * @param newX Il s'agit de la coordonné X du carré en unité "particule"
-     * @param newY Il s'agit de la coordonné Y du carré en unité "particule"
-     * @return Retourn True s'il y à collision et False sinon
+     * Teste les collisions pour un carré de tétromino à une position donnée.
+     * Les tétrominos sont composés de 4 carrés.
+     * @param newX Coordonnée X du carré en unités "particule".
+     * @param newY Coordonnée Y du carré en unités "particule".
+     * @return Vrai s'il y a collision, sinon faux.
      */
     public boolean checkCollision(int newX, int newY) {
         if (newY >= height - squareRatio) return true;
@@ -91,9 +91,9 @@ public class SandArea {
     }
 
     /**
-     * Cette fonction transforme le carré en particule.
-     * @param x Il s'agit de la coordonné X du carré en unité "particule"
-     * @param y Il s'agit de la coordonné Y du carré en unité "particule"
+     * Crée un bloc de particules à la position donnée.
+     * @param x Coordonnée X du carré en unités "particule".
+     * @param y Coordonnée Y du carré en unités "particule".
      */
     public void createBlock(int x, int y, Color current_couleur) {
         for (int i = 0; i < squareRatio; i++) {
@@ -182,13 +182,16 @@ public class SandArea {
         return score;
     }
     
- // Méthode pour ajouter des points au score
+    /**
+     * Ajoute des points au score.
+     * @param points Le nombre de points à ajouter.
+     */
     public void addScore(int points) {
         score.set(score.get() + points);
     }
     
     /**
-     * Supprime les blocs appartenant à des clusters à supprimer
+     * Supprime les blocs appartenant aux clusters qui doivent être supprimés.
      */
     public void removeBlocksToDelete() {
         List<List<Block>> clusterToDelete = findClusterToDelete();
@@ -212,23 +215,19 @@ public class SandArea {
     
 
     /**
-     * Cette fonction fait évoluer l'ensemble des particules d'une frame pour qu'elle respecte la physique choisit.
+     * Anime les blocs pour la frame actuelle, en appliquant la physique de chute et de glissement.
      */
     public void animateBlocks() {
         Random random = new Random();
         for (int i = height - 1; i >= 0; i--) {
-            //Le parcours de la cette boucle se fait soit dans le sens des j croissants soit dans le sens des j décroissant.
-            //C'est à ça que sert cette section.
-            //début de section
+            // Le parcours de cette boucle se fait de manière aléatoire, soit de gauche à droite, soit de droite à gauche.
             double moveLeftOrRight = random.nextDouble();
             int start = moveLeftOrRight < 0.5 ? 0 : width - 1;
             int end = moveLeftOrRight < 0.5 ? width : -1;
             int step = moveLeftOrRight < 0.5 ? 1 : -1;
             for (int j = start; j != end; j += step) {
-            //fin de section
                 if (blocks[i][j] != null) { // Test de la présence d'une particule
-                    //La section suivante sert à choisir si on tombe en priorité à droite ou à gauche lorsqu'on à le choix
-                    //début de section
+                    // Détermine aléatoirement la direction de chute prioritaire (gauche ou droite).
                     moveLeftOrRight = random.nextDouble();
                     int balanceLeftAndRight = -1;
                     boolean borderSideCondition1 = j < width - 1;
@@ -238,12 +237,9 @@ public class SandArea {
                         borderSideCondition1 = j > 0;
                         borderSideCondition2 = j < width - 1;
                     }
-                    //fin de section
 
-                    //Cette section traite le cas où une particule est en chute libre.
-                    //Si la particule peut tomber alors elle tombe.
-                    //Mais elle à une probabilité de ce déplacer sur le coté (comme s'il y avait du vent).
-                    //début de section
+                    // Gère la chute libre d'une particule.
+                    // La particule tombe, avec une probabilité de se déplacer latéralement.
                     if (i < height - 1 && blocks[i + 1][j] == null) {
                         double sideMoveProba = random.nextDouble();
                         double seuil = 0.2;
@@ -259,30 +255,26 @@ public class SandArea {
                             moveBlock(i, j, i + 1, j);
                         }
                     }
-                    //fin de section
 
-                    //Cette section gère les empillements de particule.
-                    //Si un particule à un écart de plus de 1 unité de haut à gauche ou à droite alors elle tombe du coté en question
-                    //début de section
+                    // Gère l'écoulement des particules sur les côtés lorsqu'elles sont empilées.
                     else if (borderSideCondition1 && i < height - 1 && blocks[i + 1][j - 1*balanceLeftAndRight] == null && blocks[i][j - 1*balanceLeftAndRight] == null) {
                         moveBlock(i, j, i, j - 1*balanceLeftAndRight);
                     }
                     else if (borderSideCondition2 && i < height - 1 && blocks[i + 1][j + 1*balanceLeftAndRight] == null && blocks[i][j + 1*balanceLeftAndRight] == null) {
                         moveBlock(i, j, i, j + 1*balanceLeftAndRight);
                     }
-                    //fin de section
                 }
             }
         }
     }
 
     /**
-     * Cette fonction déplace une particule dans la matrice de la postion (oldJ,oldI) à (newJ,newI).
-     * Elle met à jours ses coordonnées interne pour pouvoir être affiché par le moteur graphique.
-     * @param oldI Coordonné Y de la particule en unité de "particule"
-     * @param oldJ Coordonné X de la particule en unité de "particule"
-     * @param newI Coordonné Y d'arrivé de la particule en unité de "particule"
-     * @param newJ Coordonné X d'arrivé de la particule en unité de "particule"
+     * Déplace un bloc d'une position à une autre dans la grille.
+     * Met également à jour les coordonnées du bloc.
+     * @param oldI Ancienne coordonnée Y du bloc.
+     * @param oldJ Ancienne coordonnée X du bloc.
+     * @param newI Nouvelle coordonnée Y du bloc.
+     * @param newJ Nouvelle coordonnée X du bloc.
      */
     private void moveBlock(int oldI, int oldJ, int newI, int newJ) {
         Block block = blocks[oldI][oldJ];

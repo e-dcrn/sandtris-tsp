@@ -3,7 +3,7 @@ package models;
 import java.util.Random;
 
 /**
- * Représente une forme Tetris (tétrimino) composée de blocs disposés selon une matrice.
+ * Représente une forme Tetris (tetromino) composée de blocs disposés selon une matrice.
  * @param matrice Matrice représentant la forme du tétrimino
  * @param rightXSpace Nombre de colonnes non vides à droite de la forme.
  * @param bottomYSpace Nombre de lignes non vides en bas de la forme.
@@ -44,7 +44,7 @@ public class Form {
     }
 
     /**
-     * Crée une forme parmis I,J,L,O,S,T,Z
+     * Crée une forme parmi I,J,L,O,S,T,Z
      * @param type entier compris entre 0 et 6 inclus
      * @throws IllegalArgumentException type n'est pas une forme valide
      * @return un type de forme
@@ -158,7 +158,7 @@ public class Form {
     }
 
     /**
-     * Fais pivoter le block de 90°
+     * Fait pivoter le bloc de 90°
      */
     public void rotation() {
         int n = matrice.length;

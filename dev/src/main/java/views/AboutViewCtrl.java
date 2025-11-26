@@ -14,10 +14,10 @@ public class AboutViewCtrl {
     private Button ExitButton;
 
     @FXML
-    private Pane MadeByPan;
+    private Pane MadeByPane;
 
     @FXML
-    private Pane NotAfilliatedPane;
+    private Pane NotAffiliatedPane;
 
     @FXML
     private Pane RulesPane;

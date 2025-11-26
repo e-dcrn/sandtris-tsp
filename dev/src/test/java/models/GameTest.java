@@ -37,7 +37,7 @@ public class GameTest {
     @Test
     void testfindCluster() {
 
-        //tous les voisins sont de la meme couleurs
+        //tous les voisins sont de la même couleur
         SandArea area = new SandArea(10, 10, 1);
         Block a = new Block(1, 1, Color.RED);
         Block b = new Block(2, 1, Color.RED);
@@ -56,7 +56,7 @@ public class GameTest {
         assertTrue(cluster.contains(b));
         assertTrue(cluster.contains(c));
 
-        //aucun voisin de la meme couleur
+        //aucun voisin de la même couleur
         SandArea area2 = new SandArea(10, 10, 1);
         Block d = new Block(1, 1, Color.RED);
         Block e = new Block(2, 1, Color.BLUE);

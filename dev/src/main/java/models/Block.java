@@ -4,9 +4,9 @@ import javafx.scene.paint.Color;
 
 /**
  * Initialisation d'un block
- * @param x abscisse du block
- * @param y ordonnée du block
- * @param color couleur du block
+ * @param x abscisse du bloc
+ * @param y ordonnée du bloc
+ * @param color couleur du bloc
  */
 public class Block {
     private int x;
