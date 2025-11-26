@@ -16,7 +16,7 @@
             <Pane fx:id="previewPane" prefHeight="100.0" prefWidth="100.0" />
             <VBox prefWidth="100.0" spacing="5.0">
                <children>
-                  <Label text="Score :" />
+                  <Label text="Score:" />
                   <Label fx:id="scoreLabel" text="0" style="-fx-wrap-text: true;" />
                </children>
             </VBox>

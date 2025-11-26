@@ -18,7 +18,7 @@
 
         <VBox alignment="CENTER" spacing="15.0">
             <children>
-                <Text text="Entrez votre pseudo :" />
+                <Text text="Entrez votre pseudo:" />
                 <TextField fx:id="pseudoField" />
                 <Button fx:id="submitButton" text="VALIDER" onMouseClicked="#onClick"/>
             </children>

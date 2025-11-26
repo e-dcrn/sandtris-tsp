@@ -89,7 +89,7 @@ public class GameController {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        // Demande le focus pour capter les touches du clavier
+        // Demande le focus pour capturer les touches du clavier
         root.requestFocus();
     }
 

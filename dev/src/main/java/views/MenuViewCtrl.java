@@ -80,7 +80,19 @@ public class MenuViewCtrl implements javafx.fxml.Initializable {
         }
         if (event.getSource().equals(aboutButton)){
             Stage stage = (Stage) aboutButton.getScene().getWindow();
-
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/AboutView.fxml"));
+                MediaManager.attachClickSoundToAllButtons(root);
+    
+                Scene aboutScene = new Scene(root);
+                stage.setScene(aboutScene);
+                stage.sizeToScene();
+                stage.show();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
         }
         if (event.getSource().equals(leaderboardButton)) {
             Stage stage = (Stage) leaderboardButton.getScene().getWindow();

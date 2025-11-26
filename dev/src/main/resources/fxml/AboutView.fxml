@@ -13,31 +13,27 @@
          <children>
             <Pane fx:id="TitlePane" prefHeight="122.0" prefWidth="600.0">
                <children>
-                  <Text layoutX="119.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Sandtris" />
+                  <Text id="titleText" layoutX="119.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Sandtris" />
                </children>
             </Pane>
-            <Pane fx:id="MadeByPan" prefHeight="96.0" prefWidth="600.0">
+            <Pane fx:id="MadeByPane" prefHeight="96.0" prefWidth="600.0">
                <children>
-                  <Text layoutX="-1.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Made by Hugo, Ethan, Matisse, Loup, Aurélien">
-                      <font>
-                          <Font size="5.0" />
-                      </font>
-                  </Text>
+                  <Text layoutX="50.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Made by Hugo, Ethan, Matisse, Loup, Aurélien" textAlignment="CENTER" wrappingWidth="500.0" />
                </children>
             </Pane>
             <Pane fx:id="ControlesPane" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Text layoutX="287.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text layoutX="50.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contrôles : Flèche gauche/droite pour déplacer, Espace pour pivoter." textAlignment="CENTER" wrappingWidth="500.0" />
                </children>
             </Pane>
             <Pane fx:id="RulesPane" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Text layoutX="287.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text layoutX="50.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Règles : Connectez les bords gauche et droit de l'aire de jeu avec&#10;des blocs de la même couleur pour les faire disparaître et marquer des points." textAlignment="CENTER" wrappingWidth="500.0" />
                </children>
             </Pane>
-            <Pane fx:id="NotAfilliatedPane" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="NotAffiliatedPane" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="ExitButton" layoutX="253.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#onClic" prefHeight="58.0" prefWidth="95.0" text="Exit" />
+                  <Button fx:id="ExitButton" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#onClic" text="EXIT" />
                </children>
             </Pane>
          </children>

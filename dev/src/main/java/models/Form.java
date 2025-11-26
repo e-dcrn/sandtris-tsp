@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Représente une forme Tetris (tetromino) composée de blocs disposés selon une matrice.
- * @param matrice Matrice représentant la forme du tétrimino
+ * @param matrice Matrice représentant la forme du tetromino
  * @param rightXSpace Nombre de colonnes non vides à droite de la forme.
  * @param bottomYSpace Nombre de lignes non vides en bas de la forme.
  **/
@@ -71,7 +71,7 @@ public class Form {
      */
     private int calculateRightXSpace() {
         int maxCol = 0;
-        // Parcours toutes les lignes
+        // Parcourt toutes les lignes
         for (int[] ligne : matrice) {
             // Trouve la dernière colonne non vide dans cette ligne
             for (int col = ligne.length - 1; col >= 0; col--) {
@@ -116,7 +116,7 @@ public class Form {
     
     private int calculateBottomYSpace() {
         int maxRow = 0;
-        // Parcours toutes les lignes de haut en bas
+        // Parcourt toutes les lignes de haut en bas
         for (int row = matrice.length - 1; row >= 0; row--) {
             // Vérifie si la ligne contient au moins un bloc
             for (int val : matrice[row]) {

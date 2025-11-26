@@ -3,7 +3,7 @@ package models;
 import javafx.scene.paint.Color;
 
 /**
- * Initialisation d'un block
+ * Initialisation d'un bloc
  * @param x abscisse du bloc
  * @param y ordonnée du bloc
  * @param color couleur du bloc
