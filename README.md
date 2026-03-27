@@ -16,10 +16,6 @@ Ce projet a été réalisé dans le cadre du cours PRO3600 (Projet de Programmat
 *   Classement des meilleurs scores (`leaderboard`)
 *   Effets sonores et musique d'ambiance
 
-## Captures d'écran
-
-*(Vous pouvez ajouter ici des captures d'écran du jeu)*
-
 ## Prérequis
 
 *   Java (version 11 ou supérieure)
