@@ -53,4 +53,9 @@ Le projet est un projet Maven standard. Le code source se trouve dans `dev/src/m
 
 ## Équipe
 
-Ce projet a été réalisé par un groupe d'étudiants de Télécom SudParis. *(N'hésitez pas à ajouter les noms des membres de l'équipe ici).*
+Ce projet a été réalisé par un groupe d'étudiants de Télécom SudParis.
+Deleporte Hugo
+Prugnat Aurélien
+Benois Loup
+Jean-Marie Matisse 
+Moi même
